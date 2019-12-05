@@ -1,0 +1,58 @@
+/*******************************************************
+*                  @t.c file                          *
+*******************************************************/
+
+typedef unsigned char  u8;
+typedef unsigned short u16;
+typedef unsigned long  u32;
+
+#define TRK 18
+#define CYL 36
+#define BLK 1024
+
+#include "ext2.h"
+typedef struct ext2_group_desc  GD;
+typedef struct ext2_inode       INODE;
+typedef struct ext2_dir_entry_2 DIR;
+
+int prints(char *s)
+{
+}
+
+int gets(char *s)
+{ 
+}
+
+
+u16 NSEC = 2;
+char buf1[BLK], buf2[BLK];
+
+u16 getblk(u16 blk, char *buf)
+{
+    readfd( (2*blk)/CYL, ( (2*blk)%CYL)/TRK, ((2*blk)%CYL)%TRK, buf);
+}
+
+u16 search(INODE *ip, char *name)
+{
+  search for name in the data block of INODE; 
+  return its inumber if found
+  else error();
+}
+
+main()
+{ 
+
+1. Write YOUR C code to get the INODE of /boot/mtx
+   INODE *ip --> INODE
+
+   if INODE has indirect blocks: get i_block[12] int buf2[  ]
+
+
+2. setes(0x1000);  // MTX loading segment = 0x1000
+
+3. load 12 DIRECT blocks of INODE into memory beginning at segment 0x1000
+
+4. load INDIRECT blocks, if any, into memory
+
+   prints("go?"); getc();
+}  

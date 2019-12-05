@@ -1,0 +1,17 @@
+Michael Berger
+CS460
+Lab2
+
+1) The statement arm-none-eabi-as -mcpu=arm926ej-s -g ts.s -o ts.o
+    command converts the ts.s file to object code.
+
+2) The arm-none-eabi-gcc -c -mcpu=arm926ej-s -g t.c -o t.o command 
+    compiles the t.c file to object code.
+
+3) The arm-none-eabi-ld -T t.ld ts.o t.o -o t.elf command 
+    takes the t.ld, ts.o and t.c files, and combines them into t.elf
+
+4) The arm-none-eabi-objcopy -O binary t.elf t.bin command converts the
+    t.elf file into a binary. The following command spin up the qemu
+    arm virtual machine and pass t.bin as the kernal to load. Virtual
+    ports are then assigned locations on the disk.

@@ -1,0 +1,7 @@
+dd if=/dev/zero of=sdimage bs=1024 count=1024
+mke2fs -b 1024 sdimage 1024
+mount -o loop sdimage /mnt
+mkdir /mnt/bin
+ls -l /mnt
+umount /mnt
+
